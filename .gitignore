@@ -1,0 +1,7 @@
+# Python cache files
+*.pyc
+__pycache__
+
+# OAuth Authorization folder
+__auth__
+*.json
