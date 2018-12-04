@@ -40,6 +40,8 @@ if __name__ == "__main__":
     else:
         location = None
 
-    json_event = build_json(date, note, start_time, end_time, location)
-
-    call_api(json_event)
+    if date and note:
+        json_event = build_json(date, note, start_time, end_time, location)
+        call_api(json_event)
+    else:
+        print('Please enter a valid date and note.')
