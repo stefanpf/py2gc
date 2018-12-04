@@ -55,7 +55,7 @@ Example:
 
 ### -n --note (REQUIRED)
 
-Expects a string enclosed in either "" or '' depending on the operating system.
+Expects an event description/summary.
 
 Example:
 
@@ -83,7 +83,7 @@ Note: If a start time is supplied but no end time, the event will be treated as 
 
 ### -l --location (OPTIONAL)
 
-Expects a string enclosed in either "" or ''.
+Expects an event location.
 
 Example:
 
@@ -108,7 +108,14 @@ This will create an event on 24 December 2018, starting at 17:00 hrs and ending 
 This will create an event on the next 24 December, starting at 17:00 hrs and ending at 22:00 hrs, with a description of "christmas dinner" and a location of "home".
 
 ### Output Example
-to be added
+
+    $ ./py2gc.py -d 0712 -s 1900 -n "Dinner with friends"
+        Parsing date...
+        Parsing note...
+        Parsing time...
+        Building JSON event object...
+        Calling Google Calendar API...
+        Success! Event added to calendar.
 
 ## Planned Features
 
