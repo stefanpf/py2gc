@@ -76,4 +76,7 @@ def call_api(json_arg):
                                                 sendNotifications=True, body=json_arg).execute()
 
     if api_event:
-        print('Success! Event added to calendar.')
+        event_summary = api_event['summary']
+        event_date_datetime = datetime.datetime.strptime(api_event['start']['dateTime'][:10], '%Y-%M-%d')
+        event_date = datetime.datetime.strftime(event_date_datetime, '%d-%M-%Y')
+        print('Success! Event created on %s: %s' % (event_date, event_summary))
