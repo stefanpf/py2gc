@@ -1,8 +1,8 @@
-#! python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import datetime
-from apiclient import discovery
+from googleapiclient import discovery
 from httplib2 import Http
 from oauth2client import file, client, tools
 
