@@ -47,6 +47,9 @@ def build_json(date, note, start_time, end_time, location):
             end_time = datetime.datetime.strptime(start_time, '%H:%M') + datetime.timedelta(minutes=30)
             end_time = datetime.datetime.strftime(end_time, '%H:%M')
             event['end']['dateTime'] = date + 'T' + end_time + ':00' + utc_offset
+    elif date and end_time:
+        event['start']['dateTime'] = date + 'T00:00:00' + utc_offset
+        event['end']['dateTime'] = date + 'T' + end_time + ':00' + utc_offset
     else:
         event['start']['date'] = date
         del event['start']['dateTime']
