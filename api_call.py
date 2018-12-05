@@ -67,6 +67,10 @@ def call_api(json_arg):
     except ImportError:
         flags = None
 
+    '''
+    You might want to change the location of your
+    storage.json and client_id.json files in this block.
+    '''
     SCOPES = 'https://www.googleapis.com/auth/calendar'
     store = file.Storage('__auth__/storage.json')
     creds = store.get()
