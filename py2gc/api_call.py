@@ -93,6 +93,9 @@ def call_api(json_arg):
 
     if api_event:
         event_summary = api_event['summary']
-        event_date_datetime = datetime.datetime.strptime(api_event['start']['dateTime'][:10], '%Y-%M-%d')
+        try:
+            event_date_datetime = datetime.datetime.strptime(api_event['start']['dateTime'][:10], '%Y-%M-%d')
+        except KeyError:
+            event_date_datetime = datetime.datetime.strptime(api_event['start']['date'], '%Y-%M-%d')
         event_date = datetime.datetime.strftime(event_date_datetime, '%d-%M-%Y')
         print('Success! Event created on %s: %s' % (event_date, event_summary))
