@@ -11,6 +11,10 @@ def build_json(date, note, start_time, end_time, location):
 
     print('Building JSON event object...')
 
+    '''
+    This works in Python 3.x but throws an exception in Python 2.7:
+    TypeError: Required argument 'tz' (pos 1) not found
+    '''
     utc_offset = str(datetime.datetime.now().astimezone().isoformat())[-6:]
 
     event = {
