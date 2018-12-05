@@ -61,7 +61,7 @@ Example:
 
     -n "dinner at sam's"
 
-### -s --start_time (OPTIONAL)
+### -s --starttime (OPTIONAL)
 
 Expects the event start time in the format HHMM.
 
@@ -71,7 +71,7 @@ Example:
 
 Note: If no start time is supplied, the event will be treated as "all-day".
 
-### -e --end_time (OPTIONAL)
+### -e --endtime (OPTIONAL)
 
 Expects the event end time in the format HHMM.
 
