@@ -4,6 +4,7 @@
 import datetime
 from googleapiclient import discovery
 from httplib2 import Http
+import oauth2client
 from oauth2client import file, client, tools
 
 
@@ -79,7 +80,11 @@ def call_api(json_arg):
     store = file.Storage('__auth__/storage.json')
     creds = store.get()
     if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets('__auth__/client_id.json', SCOPES)
+        try:
+            flow = client.flow_from_clientsecrets('__auth__/client_id.json', SCOPES)
+        except (FileNotFoundError, oauth2client.clientsecrets.InvalidClientSecretsError):
+            print('Cannot find client_id.json or storage.json to obtain credentials.')
+            return
         creds = tools.run_flow(flow, store, flags) if flags else tools.run(flow, store)
     google_calendar = discovery.build('calendar', 'v3', http=creds.authorize(Http()))
 
