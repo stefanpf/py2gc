@@ -47,6 +47,9 @@ def build_json(date, note, start_time, end_time, location):
             end_time = datetime.datetime.strptime(start_time, '%H:%M') + datetime.timedelta(minutes=30)
             end_time = datetime.datetime.strftime(end_time, '%H:%M')
             event['end']['dateTime'] = date + 'T' + end_time + ':00' + utc_offset
+    elif date and end_time:
+        event['start']['dateTime'] = date + 'T00:00:00' + utc_offset
+        event['end']['dateTime'] = date + 'T' + end_time + ':00' + utc_offset
     else:
         event['start']['date'] = date
         del event['start']['dateTime']
@@ -76,4 +79,7 @@ def call_api(json_arg):
                                                 sendNotifications=True, body=json_arg).execute()
 
     if api_event:
-        print('Success! Event added to calendar.')
+        event_summary = api_event['summary']
+        event_date_datetime = datetime.datetime.strptime(api_event['start']['dateTime'][:10], '%Y-%M-%d')
+        event_date = datetime.datetime.strftime(event_date_datetime, '%d-%M-%Y')
+        print('Success! Event created on %s: %s' % (event_date, event_summary))
