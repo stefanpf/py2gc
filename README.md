@@ -35,8 +35,8 @@ The arguments are:
     py2gc
     -d --date       # Date of the event. REQUIRED.
     -n --note       # Description of the event, either as DDMM or DDMMYYYY. REQUIRED.
-    -s --start_time # Start time of the event, as HHMM in 24hr format.
-    -e --end_time   # End time of the event, as HHMM in 24hr format.
+    -s --starttime # Start time of the event, as HHMM in 24hr format.
+    -e --endtime   # End time of the event, as HHMM in 24hr format.
     -l --location   # Location of the event.
     -h --help       # Help.
 
