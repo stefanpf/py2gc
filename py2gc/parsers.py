@@ -75,7 +75,7 @@ def parse_path(path):
 
     print('Parsing path...')
     parsed_path = str(path)
-    if os.path.exists(path):
+    if os.path.isdir(path):
         return parsed_path
     else:
         print('''Cannot parse path to credentials. Will try to get credentials
