@@ -16,7 +16,7 @@ setup(
     author_email='mail@stefanpfeuffer.com',
     url="https://github.com/stefanpf/py2gc",
     packages=['py2gc'],
-    install_requires=['httplib2', 'argparse', 'oauth2client', 'googleapiclient'],
+    install_requires=['httplib2', 'argparse', 'oauth2client', 'google-api-python-client'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
