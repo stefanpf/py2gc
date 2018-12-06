@@ -26,7 +26,7 @@ Install Python modules:
 
 Go to the Google Developer API console, add the Calendar API to your dashboard and create OAuth credentials for a local application. Download the JSON file that contains the client id and client secret and place it in "`script_folder/__auth__/`" (or choose a different location and edit `call_api()` in `api_call.py` accordingly). Alternatively you can pass the path to the credentials with the `-p` argument (see below.)
 
-On the first run, the authenticator will open a browser window and ask the user to log in with their Google account to authenticate the API use. That Google account's primary calendar will be used.
+On the first run, the authenticator will open a browser window and ask the user to log in with their Google account to authenticate the API use. That Google account's primary calendar will be used unless a specific Calendar ID is passed via the `-i --calendarid` argument.
 
 ## Usage
 
