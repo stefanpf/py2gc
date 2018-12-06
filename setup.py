@@ -17,7 +17,7 @@ setup(
     url="https://github.com/stefanpf/py2gc",
     packages=['py2gc'],
     scripts=['bin/py2gc', 'bin/py2gc.cmd'],
-    install_requires=['httplib2', 'argparse', 'oauth2client', 'google-api-python-client'],
+    install_requires=['httplib2', 'argparse', 'oauth2client', 'google-api-python-client', 'pathlib'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
