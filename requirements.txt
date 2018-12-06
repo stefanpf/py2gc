@@ -1,4 +1,4 @@
 httplib2
 argparse
 oauth2client
-googleapiclient
+google-api-python-client
