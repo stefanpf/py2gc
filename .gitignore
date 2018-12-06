@@ -9,3 +9,6 @@ __auth__
 # Build files
 py2gc.egg-info
 build
+
+# Distribution files
+dist
