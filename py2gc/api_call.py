@@ -64,7 +64,7 @@ def build_json(date, note, start_time, end_time, location):
     return event
 
 
-def call_api(json_arg):
+def call_api(json_arg, credentials_path):
 
     print('Calling Google Calendar API...')
     try:
@@ -73,15 +73,20 @@ def call_api(json_arg):
         flags = None
 
     '''
-    You might want to change the location of your
-    storage.json and client_id.json files in this block.
+    If you want to change the default credentials directory
+    just change path = '__auth__/' to the correct path.
     '''
+    if credentials_path:
+        path = credentials_path
+    else:
+        path = '__auth__/'
+
     SCOPES = 'https://www.googleapis.com/auth/calendar'
-    store = file.Storage('__auth__/storage.json')
+    store = file.Storage('%sstorage.json' % path)
     creds = store.get()
     if not creds or creds.invalid:
         try:
-            flow = client.flow_from_clientsecrets('__auth__/client_id.json', SCOPES)
+            flow = client.flow_from_clientsecrets('%sclient_id.json' % path, SCOPES)
         except (FileNotFoundError, oauth2client.clientsecrets.InvalidClientSecretsError):
             print('Cannot find client_id.json or storage.json to obtain credentials.')
             return
@@ -99,3 +104,5 @@ def call_api(json_arg):
             event_date_datetime = datetime.datetime.strptime(api_event['start']['date'], '%Y-%M-%d')
         event_date = datetime.datetime.strftime(event_date_datetime, '%d-%M-%Y')
         print('Success! Event created on %s: %s' % (event_date, event_summary))
+    else:
+        print('API call failed for some reason.')
