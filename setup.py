@@ -7,7 +7,7 @@ with open("README.md", 'r') as f:
 
 setup(
     name='py2gc',
-    version='1.0.1',
+    version='1.0.2',
     description='Add events to a Google Calendar from the command line.',
     license="MIT",
     long_description=long_description,
@@ -16,6 +16,7 @@ setup(
     author_email='mail@stefanpfeuffer.com',
     url="https://github.com/stefanpf/py2gc",
     packages=['py2gc'],
+    scripts=['bin/py2gc'],
     install_requires=['httplib2', 'argparse', 'oauth2client', 'google-api-python-client'],
     classifiers=[
         "Programming Language :: Python :: 3",
