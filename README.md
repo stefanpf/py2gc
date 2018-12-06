@@ -38,6 +38,7 @@ The arguments are:
     -s --starttime  # Start time of the event, as HHMM in 24hr format.
     -e --endtime    # End time of the event, as HHMM in 24hr format.
     -l --location   # Location of the event.
+    -i --calendarid # Google Calendar ID. Default is primary.
     -p --path       # Path to your Google Calendar API credentials.
     -h --help       # Help.
 
@@ -89,6 +90,16 @@ Expects an event location.
 Example:
 
     -l 'library'
+
+### -i --calendarid (OPTIONAL)
+
+Expects a Google Calendar ID.
+
+Example:
+
+    -i S0MeTypeofString@group.calendar.google.com
+
+Use this argument to write the event to a specific calendar. If no Calendar ID is given, the script will default to `'primary'`.
 
 ### -p --path (OPTIONAL)
 
