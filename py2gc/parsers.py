@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 import datetime
 
 
@@ -68,3 +69,15 @@ def parse_time(event_time):
             return parsed_time
         except ValueError:
             print('Cannot parse time: %s\nPlease enter a valid time.' % event_time)
+
+
+def parse_path(path):
+
+    print('Parsing path...')
+    parsed_path = str(path)
+    if os.path.exists(path):
+        return parsed_path
+    else:
+        print('''Cannot parse path to credentials. Will try to get credentials
+              from default path __auth__.''')
+        return None
