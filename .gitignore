@@ -5,3 +5,10 @@ __pycache__
 # OAuth Authorization folder
 __auth__
 *.json
+
+# Build files
+py2gc.egg-info
+build
+
+# Distribution files
+dist
