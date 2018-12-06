@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+import googleapiclient
 from googleapiclient import discovery
 from httplib2 import Http
 import oauth2client
@@ -64,7 +65,7 @@ def build_json(date, note, start_time, end_time, location):
     return event
 
 
-def call_api(json_arg, credentials_path):
+def call_api(json_arg, credentials_path, calendar_id):
 
     print('Calling Google Calendar API...')
     try:
@@ -81,6 +82,11 @@ def call_api(json_arg, credentials_path):
     else:
         path = '__auth__/'
 
+    if calendar_id:
+        calendar_id = str(calendar_id)
+    else:
+        calendar_id = 'primary'
+
     SCOPES = 'https://www.googleapis.com/auth/calendar'
     store = file.Storage('%sstorage.json' % path)
     creds = store.get()
@@ -93,8 +99,12 @@ def call_api(json_arg, credentials_path):
         creds = tools.run_flow(flow, store, flags) if flags else tools.run(flow, store)
     google_calendar = discovery.build('calendar', 'v3', http=creds.authorize(Http()))
 
-    api_event = google_calendar.events().insert(calendarId='primary',
-                                                sendNotifications=True, body=json_arg).execute()
+    try:
+        api_event = google_calendar.events().insert(calendarId=calendar_id,
+                                                    sendNotifications=True, body=json_arg).execute()
+    except googleapiclient.errors.HttpError:
+        print('Cannot find calendar. Wrong ID?')
+        return
 
     if api_event:
         event_summary = api_event['summary']
