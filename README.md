@@ -34,7 +34,7 @@ Or manually download this repo and install Python modules with:
 
     pip install requirements.txt
 
-2. Go to the Google Developer API console, add the Calendar API to your dashboard and create OAuth credentials for a local application. Download the JSON file that contains the client id and client secret and place it in "`script_folder/__auth__/`" (or choose a different location and edit `call_api()` in `api_call.py` accordingly). Alternatively you can pass the path to the credentials with the `-p` argument (see below.)
+2. Go to the Google Developer API console, add the Calendar API to your dashboard and create OAuth credentials for a local application. Download the JSON file that contains the client id and client secret and place it in "`$home/__auth__/`" (or choose a different location and edit `call_api()` in `api_call.py` accordingly). Alternatively you can pass the path to the credentials with the `-p` argument (see below.)
 
 3. On the first run, the authenticator will open a browser window and ask the user to log in with their Google account to authenticate the API use. That Google account's primary calendar will be used unless a specific Calendar ID is passed via the `-i --calendarid` argument.
 
@@ -119,7 +119,7 @@ Example:
 
     -p /usr/test/path/to/credentials
 
-Note: by default, the script will expect to find the Google API credentials (client_id.json and, after the first run, storage.json) in a sub-folder called `__auth__`. If you want to store your credentials elsewhere, you can either pass the correct path via this argument or change the variable `path = '__auth__/'` in the `call_api()` function.
+Note: by default, the script will expect to find the Google API credentials (client_id.json and, after the first run, storage.json) in a sub-folder called `$home/__auth__`. If you want to store your credentials elsewhere, you can either pass the correct path via this argument or change the variable `path = '$home/__auth__/'` in the `call_api()` function.
 
 ### Usage Examples
 
