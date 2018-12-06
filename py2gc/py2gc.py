@@ -19,6 +19,7 @@ def parse_arguments():
     p.add_argument('-e', '--endtime', help='''End time of the event,
                     as HHMM in 24hr format.''')
     p.add_argument('-l', '--location', help='Location of the event.')
+    p.add_argument('-i', '--calendarid', help='Google CalendarID. Default is primary.')
     p.add_argument('-p', '--path', help='''Path to your Google Calendar API
                     credentials.''')
     return p.parse_args()
@@ -51,8 +52,13 @@ if __name__ == "__main__":
     else:
         credentials_path = None
 
+    if args.calendarid:
+        calendar_id = args.calendarid
+    else:
+        calendar_id = None
+
     if date and note:
         json_event = build_json(date, note, start_time, end_time, location)
-        call_api(json_event, credentials_path)
+        call_api(json_event, credentials_path, calendar_id)
     else:
         print('Please enter a valid date and note.')
