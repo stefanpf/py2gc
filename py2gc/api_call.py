@@ -4,6 +4,7 @@
 import datetime
 import googleapiclient
 from googleapiclient import discovery
+from pathlib import Path
 from httplib2 import Http
 import oauth2client
 from oauth2client import file, client, tools
@@ -75,12 +76,12 @@ def call_api(json_arg, credentials_path, calendar_id):
 
     '''
     If you want to change the default credentials directory
-    just change path = '__auth__/' to the correct path.
+    just change path = '$home/__auth__/' to the correct path.
     '''
     if credentials_path:
         path = credentials_path
     else:
-        path = '__auth__/'
+        path = str(Path.home()) + '/__auth__/'
 
     if calendar_id:
         calendar_id = str(calendar_id)
