@@ -76,12 +76,12 @@ def call_api(json_arg, credentials_path, calendar_id):
 
     '''
     If you want to change the default credentials directory
-    just change path = '$home/__auth__/' to the correct path.
+    just change path = '$home/.py2gc/' to the correct path.
     '''
     if credentials_path:
         path = credentials_path
     else:
-        path = str(Path.home()) + '/__auth__/'
+        path = str(Path.home()) + '/.py2gc/'
 
     if calendar_id:
         calendar_id = str(calendar_id)
