@@ -7,7 +7,7 @@ with open("README.md", 'r') as f:
 
 setup(
     name='py2gc',
-    version='1.0.3',
+    version='1.0.4',
     description='Add events to a Google Calendar from the command line.',
     license="MIT",
     long_description=long_description,
