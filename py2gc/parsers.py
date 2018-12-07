@@ -22,7 +22,7 @@ def parse_date(date):
             date_to_datetime_object = datetime.datetime.strptime(date, '%d%m')
             datestr_current_year = str(current_year) + '-' + datetime.datetime.strftime(date_to_datetime_object, '%m-%d')
             datetime_current_year = datetime.datetime.strptime(datestr_current_year, '%Y-%m-%d')
-            if datetime_current_year - datetime.datetime.now() > datetime.timedelta(days=1):
+            if datetime_current_year - datetime.datetime.now() >= datetime.timedelta(days=0):
                 parsed_date = datestr_current_year
                 return parsed_date
             else:
