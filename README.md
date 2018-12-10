@@ -43,8 +43,8 @@ Or manually download this repo and install Python modules with:
 The arguments are:
 
     py2gc
-    -d --date       # Date of the event. REQUIRED.
-    -n --note       # Description of the event, either as DDMM or DDMMYYYY. REQUIRED.
+    -d --date       # Date of the event either as DDMM or DDMMYYYY. REQUIRED.
+    -n --note       # Description of the event. REQUIRED.
     -s --starttime  # Start time of the event, as HHMM in 24hr format.
     -e --endtime    # End time of the event, as HHMM in 24hr format.
     -l --location   # Location of the event.

@@ -24,10 +24,10 @@ def build_json(date, note, start_time, end_time, location):
         'summary': '',
         'location': '',
         'start': {
-            'dateTime': '2015-05-28T09:00:00-07:00'
+            'dateTime': ''
         },
         'end': {
-            'dateTime': '2015-05-28T17:00:00-07:00'
+            'dateTime': ''
         },
         'reminders': {
             'useDefault': False,
@@ -44,13 +44,17 @@ def build_json(date, note, start_time, end_time, location):
     else:
         del event['location']
 
+    '''
+    Required format for dateTime values:
+    2018-12-27T13:45:00-07:00
+    '''
+
     if date and start_time:
         if end_time:
             event['start']['dateTime'] = date + 'T' + start_time + ':00' + utc_offset
             event['end']['dateTime'] = date + 'T' + end_time + ':00' + utc_offset
         else:
             event['start']['dateTime'] = date + 'T' + start_time + ':00' + utc_offset
-
             end_time = datetime.datetime.strptime(start_time, '%H:%M') + datetime.timedelta(minutes=30)
             end_time = datetime.datetime.strftime(end_time, '%H:%M')
             event['end']['dateTime'] = date + 'T' + end_time + ':00' + utc_offset

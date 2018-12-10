@@ -79,5 +79,5 @@ def parse_path(path):
         return parsed_path
     else:
         print('''Cannot parse path to credentials. Will try to get credentials
-              from default path __auth__.''')
+              from default path $home/.py2gc/.''')
         return None
