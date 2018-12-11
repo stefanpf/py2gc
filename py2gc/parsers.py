@@ -80,4 +80,3 @@ def parse_path(path):
     else:
         print('''Cannot parse path to credentials. Will try to get credentials
               from default path $home/.py2gc/.''')
-        return None
