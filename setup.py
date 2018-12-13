@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", 'r') as f:
     long_description = f.read()
@@ -15,7 +15,7 @@ setup(
     author='Stefan Pfeuffer',
     author_email='mail@stefanpfeuffer.com',
     url="https://github.com/stefanpf/py2gc",
-    packages=['py2gc'],
+    packages=find_packages(),
     entry_points={'console_scripts': ['py2gc = py2gc.py2gc:main']},
     install_requires=['httplib2', 'argparse', 'oauth2client', 'google-api-python-client', 'pathlib'],
     classifiers=[
