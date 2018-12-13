@@ -15,7 +15,7 @@ setup(
     author='Stefan Pfeuffer',
     author_email='mail@stefanpfeuffer.com',
     url="https://github.com/stefanpf/py2gc",
-    packages=find_packages(),
+    packages=['py2gc', 'py2gc.parsers', 'py2gc.api_call'],
     entry_points={'console_scripts': ['py2gc = py2gc.py2gc:main']},
     install_requires=['httplib2', 'argparse', 'oauth2client', 'google-api-python-client', 'pathlib'],
     classifiers=[
