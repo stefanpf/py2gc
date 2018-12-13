@@ -25,7 +25,7 @@ def parse_arguments():
     return p.parse_args()
 
 
-def main():
+def cli():
 
     args = parse_arguments()
 
@@ -65,4 +65,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    cli()
