@@ -3,8 +3,8 @@
 # A small command line utility to add events to a Google Calendar.
 
 import argparse
-from py2gc.parsers import parse_date, parse_location, parse_note, parse_time, parse_path
-from py2gc.api_call import build_json, call_api
+from parsers import parse_date, parse_location, parse_note, parse_time, parse_path
+from api_call import build_json, call_api
 
 
 def parse_arguments():
