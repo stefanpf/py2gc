@@ -1,29 +1,4 @@
-@echo OFF
-REM="""
-setlocal
-set PythonExe=""
-set PythonExeFlags=
-
-for %%i in (cmd bat exe) do (
-    for %%j in (python.%%i) do (
-        call :SetPythonExe "%%~$PATH:j"
-    )
-)
-
-%PythonExe% -x %PythonExeFlags% "%~f0" %*
-exit /B %ERRORLEVEL%
-goto :EOF
-
-:SetPythonExe
-if not ["%~1"]==[""] (
-    if [%PythonExe%]==[""] (
-        set PythonExe="%~1"
-    )
-)
-goto :EOF
-"""
-
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # A small command line utility to add events to a Google Calendar.
 
@@ -50,7 +25,7 @@ def parse_arguments():
     return p.parse_args()
 
 
-if __name__ == "__main__":
+def main():
 
     args = parse_arguments()
 
@@ -87,3 +62,7 @@ if __name__ == "__main__":
         call_api(json_event, credentials_path, calendar_id)
     else:
         print('Please enter a valid date and note.')
+
+
+if __name__ == "__main__":
+    main()

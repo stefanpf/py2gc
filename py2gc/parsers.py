@@ -40,6 +40,9 @@ def parse_date(date):
 
 
 def parse_location(location):
+    '''
+    Currently just makes sure that the input is a string.
+    '''
 
     print('Parsing location...')
     parsed_location = str(location)
@@ -47,6 +50,9 @@ def parse_location(location):
 
 
 def parse_note(note):
+    '''
+    Currently just makes sure that the input is a string.
+    '''
 
     print('Parsing note...')
     parsed_note = str(note)
@@ -72,6 +78,10 @@ def parse_time(event_time):
 
 
 def parse_path(path):
+    '''
+    Currently just returns the given path if it exists,
+    or the default if it doesn't.
+    '''
 
     print('Parsing path...')
     parsed_path = str(path)
@@ -80,4 +90,3 @@ def parse_path(path):
     else:
         print('''Cannot parse path to credentials. Will try to get credentials
               from default path $home/.py2gc/.''')
-        return None
