@@ -1,5 +1,9 @@
 # py2gc
+[![Downloads](https://pepy.tech/badge/py2gc)](https://pepy.tech/project/py2gc)
+
 A small command line utility to add events to a Google Calendar.
+
+Project Description: https://stefanpfeuffer.com/post/3/py2gc
 
 It will:
 
@@ -32,7 +36,7 @@ or
 
 Or manually download this repo and install Python modules with:
 
-    pip install requirements.txt
+    pip install -r requirements.txt
 
 Version note: this script doesn't work on Python 2.X. If you have different Pythons installed on your system, you will want to install this using `pip3` to make sure that it will be installed under your Python 3.X.
 
@@ -56,7 +60,7 @@ The arguments are:
 
 ### -d --date (REQUIRED)
 
-Expects the event date in the format DDMM or DDMMYYYY. 
+Expects the event date in the format DDMM or DDMMYYYY.
 
 If no year is given, it will assume the current calendar year if the given date is in the future and the next calendar year if the date is in the past. Put differently: if no year is given, the event will be placed on the first future occurence of the date.
 
