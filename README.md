@@ -3,7 +3,7 @@
 
 A small command line utility to add events to a Google Calendar.
 
-Project Description: https://stefanpfeuffer.com/post/3/py2gc
+Project Description: https://blog.stefanpfeuffer.com/post/3/py2gc
 
 It will:
 
